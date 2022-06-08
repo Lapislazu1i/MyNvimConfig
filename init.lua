@@ -12,7 +12,7 @@ require("user.cmp")
 require("user.telescope")
 require("user.treesitter")
 require("user.autopairs")
--- require("user.gitsigns")
+
 require("user.tree")
 require("user.symbolsoutline")
 require("user.lualine")
