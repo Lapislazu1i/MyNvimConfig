@@ -1,14 +1,4 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 
-if status_ok then
-    lsp_installer.setup{}
-end
-
-local lspconfigok, lspconfig = pcall(require, "lspconfig")
-
-if not status_ok then
-    vim.notify("lspconfig don't exists")
-end
 
 
 
@@ -47,6 +37,8 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
+
+require("nvim-lsp-installer").setup{}
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'cmake', 'csharp_ls' }

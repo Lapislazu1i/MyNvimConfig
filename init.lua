@@ -2,6 +2,10 @@ vim.g.mapleader = "'"
 vim.g.maplocalleader = ""
 
 
+require("myself.options")
+require("myself.cmake")
+require("myself.filetype")
+
 require("user.plugins")
 require("user.lspconfig")
 require("user.cmp")
@@ -14,11 +18,10 @@ require("user.symbolsoutline")
 require("user.lualine")
 require("user.bufferline")
 
-require("myself.options")
-require("myself.cmake")
-require("myself.filetype")
 
 require("keymap")
 
-vim.cmd [[colorscheme gruvbox]]
+
+
+vim.cmd [[colorscheme dracula]]
 vim.background = dark

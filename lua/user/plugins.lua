@@ -1,9 +1,11 @@
+
 local fn = vim.fn
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-    packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
+vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
     -- My plugins here
     -- use 'foo1/bar1.nvim'
@@ -12,8 +14,6 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    -- Simple plugins can be specified as strings
-    use '9mm/vim-closer'
 
     -- Lazy loading:
     -- Load on specific commands
@@ -24,26 +24,14 @@ return require('packer').startup(function(use)
 
     -- Load on a combination of conditions: specific filetypes or commands
     -- Also run code after load (see the "config" key)
-    use {
-        'w0rp/ale',
-        ft = { 'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim', 'tex' },
-        cmd = 'ALEEnable',
-        config = 'vim.cmd[[ALEEnable]]'
-    }
+    -- use {
+    --     'w0rp/ale',
+    --     ft = { 'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim', 'tex' },
+    --     cmd = 'ALEEnable',
+    --     config = 'vim.cmd[[ALEEnable]]'
+    -- }
 
 
-    -- Plugins can also depend on rocks from luarocks.org:
-    use {
-        'my/supercoolplugin',
-        rocks = { 'lpeg', { 'lua-cjson', version = '2.1.0' } }
-    }
-
-    -- You can specify rocks in isolation
-    use_rocks 'penlight'
-    use_rocks { 'lua-resty-http', 'lpeg' }
-
-    -- Local plugins can be included
-    use '~/projects/personal/hover.nvim'
 
     -- Plugins can have post-install/update hooks
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview' }
@@ -51,14 +39,7 @@ return require('packer').startup(function(use)
     -- Post-install/update hook with neovim command
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-    -- Post-install/update hook with call of vimscript function with argument
-    use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
 
-    -- Use specific branch, dependency and run lua file after load
-    use {
-        'glepnir/galaxyline.nvim', branch = 'main', config = function() require 'statusline' end,
-        requires = { 'kyazdani42/nvim-web-devicons' }
-    }
 
     -- Use dependency and run lua function after load
     use {
@@ -103,7 +84,7 @@ return require('packer').startup(function(use)
                 require("nvim-autopairs").setup {}
         end
     }
-
+    use 'kyazdani42/nvim-web-devicons'
     -- file exporer
     use {
         'kyazdani42/nvim-tree.lua',
@@ -124,10 +105,8 @@ return require('packer').startup(function(use)
     use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 
     -- lua line 
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-      }
+    use  'nvim-lualine/lualine.nvim'
+      
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
@@ -136,3 +115,4 @@ return require('packer').startup(function(use)
 
 end
 )
+
