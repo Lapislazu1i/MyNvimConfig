@@ -131,6 +131,9 @@ use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = fun
 
     -- lua line 
     use  'nvim-lualine/lualine.nvim'
+
+    -- formatting
+    use { 'mhartington/formatter.nvim' }
       
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

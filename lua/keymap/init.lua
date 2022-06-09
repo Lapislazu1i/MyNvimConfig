@@ -59,6 +59,8 @@ local plug_map = {
 
 bind.nvim_load_mapping(plug_map)
 
+vim.keymap.set('n', '<C-s>', '<Cmd>w<CR>')
+-- terminal
 vim.keymap.set({'n', 't'}, '<C-t>', '<Cmd>ToggleTerm<CR>')
 vim.keymap.set({'n', 't'}, '<C-t-a>', '<Cmd>ToggleTermToggleAll<CR>')
 
@@ -68,3 +70,18 @@ vim.keymap.set({'n'}, '<F12>', '<Cmd>MarkdownPreviewToggle<CR>')
 -- tasks
 vim.keymap.set('n', '<F5>', require('telescope').extensions.toggletasks.spawn,
     { desc = 'toggletasks: spawn' })
+
+-- format
+vim.keymap.set('n', '<Leader><A-f>', '<Cmd>Format<CR>')
+vim.keymap.set('n', '<Leader><A-F>', '<Cmd>FormatWrite<CR>')
+
+-- split screen
+vim.keymap.set('n', 'sv', "<Cmd>vsp<CR>")
+vim.keymap.set('n', 'sh', "<Cmd>sp<CR>")
+vim.keymap.set('n', 'sc', "<C-w>c")
+vim.keymap.set('n', 'so', "<C-w>o")
+
+vim.keymap.set('n', '<C-h>', '<C-w>h')
+vim.keymap.set('n', '<C-j>', '<C-w>j')
+vim.keymap.set('n', '<C-k>', '<C-w>k')
+vim.keymap.set('n', '<C-l>', '<C-w>l')

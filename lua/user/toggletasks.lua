@@ -10,6 +10,7 @@ require('toggletasks').setup {
         '.toggletasks',
         'ttasks',
         '.nvim/toggletasks',
+        '~/.config/nvim/toggletasks'
     },
     -- Directories to consider when searching for available tasks for current window
     scan = {

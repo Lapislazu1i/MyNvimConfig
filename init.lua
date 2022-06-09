@@ -8,6 +8,7 @@ require("myself.filetype")
 
 require("user.plugins")
 require("user.lspconfig")
+require("user.formatter")
 
 require("user.cmp")
 
