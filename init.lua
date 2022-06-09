@@ -8,8 +8,13 @@ require("myself.filetype")
 
 require("user.plugins")
 require("user.lspconfig")
+
 require("user.cmp")
+
 require("user.telescope")
+require("user.toggleterm")
+require("user.toggletasks")
+
 require("user.treesitter")
 require("user.autopairs")
 

@@ -34,25 +34,37 @@ local plug_map = {
 	["n|<Leader>nr"] = map_cr("NvimTreeRefresh"):with_noremap():with_silent(),
 
 	-- Plugin Telescope
-	-- ["n|<Leader>fp"] = map_cu("lua require('telescope').extensions.project.project{}"):with_noremap():with_silent(),
-	-- ["n|<Leader>fr"] = map_cu("lua require('telescope').extensions.frecency.frecency{}"):with_noremap():with_silent(),
-	-- ["n|<Leader>fe"] = map_cu("Telescope oldfiles"):with_noremap():with_silent(),
-	-- ["n|<Leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent(),
-	-- ["n|<Leader>sc"] = map_cu("Telescope colorscheme"):with_noremap():with_silent(),
-	-- ["n|<Leader>fn"] = map_cu(":enew"):with_noremap():with_silent(),
-	-- ["n|<Leader>fw"] = map_cu("Telescope live_grep"):with_noremap():with_silent(),
-	-- ["n|<Leader>fg"] = map_cu("Telescope git_files"):with_noremap():with_silent(),
-	-- ["n|<Leader>fz"] = map_cu("Telescope zoxide list"):with_noremap():with_silent(),
+	--["n|<Leader>fp"] = map_cu("lua require('telescope').extensions.project.project{}"):with_noremap():with_silent(),
+	--["n|<Leader>fr"] = map_cu("lua require('telescope').extensions.frecency.frecency{}"):with_noremap():with_silent(),
+	["n|<Leader>fe"] = map_cu("Telescope oldfiles"):with_noremap():with_silent(),
+	["n|<Leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent(),
+	["n|<Leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent(),
+	["n|<Leader>sc"] = map_cu("Telescope colorscheme"):with_noremap():with_silent(),
+	["n|<Leader>fn"] = map_cu(":enew"):with_noremap():with_silent(),
+	["n|<Leader>fw"] = map_cu("Telescope live_grep"):with_noremap():with_silent(),
+	["n|<Leader>fg"] = map_cu("Telescope git_files"):with_noremap():with_silent(),
+	["n|<Leader>fz"] = map_cu("Telescope zoxide list"):with_noremap():with_silent(),
 	-- Plugin accelerate-jk
 	-- Plugin EasyAlign
 	["n|ga"] = map_cmd("v:lua.enhance_align('nga')"):with_expr(),
 	["x|ga"] = map_cmd("v:lua.enhance_align('xga')"):with_expr(),
 	-- Plugin split-term
-	["n|<F5>"] = map_cr("VTerm"):with_noremap():with_silent(),
+	
 	["n|<C-w>t"] = map_cr("VTerm"):with_noremap():with_silent(),
-	-- Plugin MarkdownPreview
-	["n|<F12>"] = map_cr("MarkdownPreviewToggle"):with_noremap():with_silent(),
+
+
+
 
 }
 
 bind.nvim_load_mapping(plug_map)
+
+vim.keymap.set({'n', 't'}, '<C-t>', '<Cmd>ToggleTerm<CR>')
+vim.keymap.set({'n', 't'}, '<C-t-a>', '<Cmd>ToggleTermToggleAll<CR>')
+
+vim.keymap.set({'n'}, '<F12>', '<Cmd>MarkdownPreviewToggle<CR>')
+
+
+-- tasks
+vim.keymap.set('n', '<F5>', require('telescope').extensions.toggletasks.spawn,
+    { desc = 'toggletasks: spawn' })

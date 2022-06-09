@@ -34,7 +34,16 @@ return require('packer').startup(function(use)
 
 
     -- Plugins can have post-install/update hooks
-    use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview' }
+
+
+    -- install without yarn or npm
+use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+})
+
+use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+
 
     -- Post-install/update hook with neovim command
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -98,6 +107,22 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim',
         requires = { {'nvim-lua/plenary.nvim'} }
       }
+
+    use {"akinsho/toggleterm.nvim", tag = 'v1.*', config = function()
+        require("toggleterm").setup()
+    end}
+
+    use {
+        'jedrzejboczar/toggletasks.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'akinsho/toggleterm.nvim',
+            'nvim-telescope/telescope.nvim/',
+        },
+        -- To enable YAML config support
+        rocks = 'lyaml',
+    }
+
 
     -- symbols outline
     use 'simrat39/symbols-outline.nvim'
