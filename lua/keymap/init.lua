@@ -61,12 +61,15 @@ bind.nvim_load_mapping(plug_map)
 
 vim.keymap.set('n', '<C-s>', '<Cmd>w<CR>')
 -- terminal
-vim.keymap.set({'n', 't'}, '<C-t>', '<Cmd>ToggleTerm<CR>')
+vim.keymap.set({'n', 't'}, '<C-t>', '<Cmd>exe v:count1 . "ToggleTerm"<CR>')
+vim.keymap.set({'n', 't'}, '<Leader>2', '<Cmd>exe 2 . "ToggleTerm"<CR>')
+vim.keymap.set({'n', 't'}, '<Leader>2', '<Cmd>exe 3 . "ToggleTerm"<CR>')
 vim.keymap.set({'n', 't'}, '<C-t-a>', '<Cmd>ToggleTermToggleAll<CR>')
 
 vim.keymap.set({'n'}, '<F12>', '<Cmd>MarkdownPreviewToggle<CR>')
 
-
+-- close buffer
+vim.keymap.set({'n'}, '<Leader>w', '<Cmd>bd<CR>')
 -- tasks
 vim.keymap.set('n', '<F5>', require('telescope').extensions.toggletasks.spawn,
     { desc = 'toggletasks: spawn' })

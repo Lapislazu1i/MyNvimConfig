@@ -29,4 +29,5 @@ vim.opt.cursorline = true
 
 vim.opt.mouse = "a"
 
+vim.o.hidden = true
 vim.api.nvim_command(':filetype plugin on')
