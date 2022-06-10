@@ -1,6 +1,19 @@
 -- Utilities for creating configurations
 local util = require "formatter.util"
 
+local forc = function()
+  return {
+    exe = "clang-format",
+    args = {
+      "-style",
+      "google",
+      "-assume-filename",
+      util.escape_path(util.get_current_buffer_file_name()),
+    },
+    stdin = true,
+    try_node_modules = true,
+  }
+end
 -- Provides the Format and FormatWrite commands
 require('formatter').setup {
   -- All formatter configurations are opt-in
@@ -22,10 +35,10 @@ require('formatter').setup {
       require('formatter.filetypes.typescriptreact').prettier,
     },
     c = {
-      require('formatter.filetypes.c').clangformat,
+      forc,
     },
     cpp = {
-        require('formatter.filetypes.cpp').clangformat,
+      forc,
     },
     cs = {
       require('formatter.filetypes.cs').dotnetformat,
