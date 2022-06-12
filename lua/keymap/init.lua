@@ -71,7 +71,7 @@ vim.keymap.set({'n'}, '<F12>', '<Cmd>MarkdownPreviewToggle<CR>')
 -- close buffer
 vim.keymap.set({'n'}, '<Leader>w', '<Cmd>bd<CR>')
 -- tasks
-vim.keymap.set('n', '<F5>', require('telescope').extensions.toggletasks.spawn,
+vim.keymap.set('n', '<Leader>t', require('telescope').extensions.toggletasks.spawn,
     { desc = 'toggletasks: spawn' })
 
 -- format
@@ -88,3 +88,7 @@ vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
+
+-- dap
+-- 显示或隐藏调试界面
+vim.keymap.set("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<CR>")

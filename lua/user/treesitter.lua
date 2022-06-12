@@ -1,3 +1,4 @@
+-- need npm install tree-sitter-cli
 local status, treesitter = pcall(require, 'nvim-treesitter.configs')
 if(not status) then
   return
@@ -45,3 +46,14 @@ vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 -- 默认不要折叠
 -- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
 vim.wo.foldlevel = 99
+
+
+--  Configure nvim-treesitter parsers' install_info.url
+require("nvim-treesitter.install").prefer_git = true
+local parsers = require("nvim-treesitter.parsers").get_parser_configs()
+for _, p in pairs(parsers) do
+  p.install_info.url = p.install_info.url:gsub(
+    "https://github.com/",
+    "git@github.com:"
+  )
+end

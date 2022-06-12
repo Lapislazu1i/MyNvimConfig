@@ -24,6 +24,9 @@ require("user.symbolsoutline")
 require("user.lualine")
 require("user.bufferline")
 
+require("user.dap")
+
+
 
 require("keymap")
 

@@ -6,7 +6,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 vim.cmd [[packadd packer.nvim]]
-return require('packer').startup(function(use)
+return require('packer').startup({function(use)
     -- My plugins here
     -- use 'foo1/bar1.nvim'
     -- use 'foo2/bar2.nvim'
@@ -22,18 +22,6 @@ return require('packer').startup(function(use)
     -- Load on an autocommand event
     use { 'andymass/vim-matchup', event = 'VimEnter' }
 
-    -- Load on a combination of conditions: specific filetypes or commands
-    -- Also run code after load (see the "config" key)
-    -- use {
-    --     'w0rp/ale',
-    --     ft = { 'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim', 'tex' },
-    --     cmd = 'ALEEnable',
-    --     config = 'vim.cmd[[ALEEnable]]'
-    -- }
-
-
-
-    -- Plugins can have post-install/update hooks
 
 
     -- install without yarn or npm
@@ -131,6 +119,11 @@ return require('packer').startup(function(use)
 
     -- formatting
     use { 'mhartington/formatter.nvim' }
+    -- debug
+    use 'mfussenegger/nvim-dap'
+    use 'theHamsta/nvim-dap-virtual-text'
+    use 'rcarriga/nvim-dap-ui'
+    -- use 'mfussenegger/nvim-dap-python'
       
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
@@ -138,6 +131,11 @@ return require('packer').startup(function(use)
         require('packer').sync()
     end
 
-end
-)
+end,
+config = {
+    git = {
+      default_url_format = "git@github.com:%s",
+    },
+  },
+})
 
