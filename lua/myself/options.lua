@@ -32,4 +32,4 @@ vim.opt.mouse = "a"
 vim.o.hidden = true
 vim.api.nvim_command(':filetype plugin on')
 
-vim.g.python_path = "D:\\Program\\Python310"
+vim.g.python_path = "C:/Users/111/AppData/Local/Programs/Python/Python310/python.exe"
