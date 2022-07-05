@@ -3,14 +3,13 @@ local util = require "formatter.util"
 
 local forc = function()
   return {
-    exe = "clang-format",
+    exe = "astyle",
     args = {
-      "-style",
-      "google",
-      "-assume-filename",
+      "--style=bsd",
+      "-n",
       util.escape_path(util.get_current_buffer_file_name()),
     },
-    stdin = true,
+    stdin = false,
     try_node_modules = true,
   }
 end

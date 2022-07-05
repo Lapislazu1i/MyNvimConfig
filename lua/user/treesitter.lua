@@ -1,3 +1,16 @@
+
+--  Configure nvim-treesitter parsers' install_info.url
+require("nvim-treesitter.install").prefer_git = true
+local parsers = require("nvim-treesitter.parsers").get_parser_configs()
+for _, p in pairs(parsers) do
+  p.install_info.url = p.install_info.url:gsub(
+    "https://github.com/",
+    "git@github.com:"
+  )
+end
+
+require 'nvim-treesitter.install'.compilers = { "zig", "gcc" }
+
 -- need npm install tree-sitter-cli
 local status, treesitter = pcall(require, 'nvim-treesitter.configs')
 if(not status) then
@@ -7,7 +20,7 @@ end
 treesitter.setup {
   -- A list of parser names, or "all"
   ensure_installed = { "html", "css", "lua", "javascript", "typescript", "tsx","vim", "python", "cpp", "c", "json", "c_sharp", "bash" },
-
+  
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
 
@@ -34,6 +47,15 @@ treesitter.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = '<CR>',
+      node_incremental = '<CR>',
+      node_decremental = '<BS>',
+      scope_incremental = '<TAB>',
+    }
+  },
 }
 
 
@@ -48,12 +70,3 @@ vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.wo.foldlevel = 99
 
 
---  Configure nvim-treesitter parsers' install_info.url
-require("nvim-treesitter.install").prefer_git = true
-local parsers = require("nvim-treesitter.parsers").get_parser_configs()
-for _, p in pairs(parsers) do
-  p.install_info.url = p.install_info.url:gsub(
-    "https://github.com/",
-    "git@github.com:"
-  )
-end
