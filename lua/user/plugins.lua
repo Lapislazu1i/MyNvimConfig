@@ -123,7 +123,7 @@ return require('packer').startup({function(use)
     use 'mfussenegger/nvim-dap'
     use 'theHamsta/nvim-dap-virtual-text'
     use 'rcarriga/nvim-dap-ui'
-    use 'mfussenegger/nvim-dap-python'
+    -- use 'mfussenegger/nvim-dap-python'
       
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

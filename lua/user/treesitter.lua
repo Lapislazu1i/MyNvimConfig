@@ -9,7 +9,7 @@ for _, p in pairs(parsers) do
   )
 end
 
-require 'nvim-treesitter.install'.compilers = { "zig", "gcc" }
+require 'nvim-treesitter.install'.compilers = { "zig", "clang", "gcc" }
 
 -- need npm install tree-sitter-cli
 local status, treesitter = pcall(require, 'nvim-treesitter.configs')
