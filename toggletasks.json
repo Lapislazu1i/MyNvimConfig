@@ -1,8 +1,8 @@
 {
     "tasks": [
         {
-            "name": "Echo",
-            "cmd": "echo 'Current file = ${file}'"
+            "name": "c++ gcc",
+            "cmd": "g++ ${file} -o main && ./main"
         },
         {
             "name": "System logs",

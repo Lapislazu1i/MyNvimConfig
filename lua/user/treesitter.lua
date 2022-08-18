@@ -28,9 +28,13 @@ treesitter.setup {
   ignore_install = {  },
 
   indent = {
-    enable = false,
+    enable = true,
     disable= {}
   },
+  autotag= {
+    enable = true,
+  }
+  ,
   highlight = {
     -- `false` will disable the whole extension
     enable = true,
@@ -58,7 +62,11 @@ treesitter.setup {
   },
 }
 
-
+local statusnta, nvimtsautotag = pcall(require, 'nvim-ts-autotag')
+if statusnta then
+  return
+end
+nvimtsautotag.setup()
 
 
 

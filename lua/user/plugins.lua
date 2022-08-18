@@ -55,15 +55,30 @@ return require('packer').startup({function(use)
     use 'morhetz/gruvbox'
 
     -- lspconfig
-    use "williamboman/nvim-lsp-installer"
-    use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client
-
+    use {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "neovim/nvim-lspconfig",
+  }
+    use { "williamboman/mason.nvim" }
     use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
     use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
     use({"petertriho/cmp-git", requires = "nvim-lua/plenary.nvim"})
     use 'hrsh7th/cmp-buffer'
     use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
     use 'L3MON4D3/LuaSnip' -- Snippets plugin
+
+    use({
+      "glepnir/lspsaga.nvim",
+      branch = "main",
+      config = function()
+          local saga = require("lspsaga")
+  
+          saga.init_lsp_saga({
+              -- your configuration
+          })
+      end,
+  })
 
 
     -- clangd extension
@@ -124,6 +139,10 @@ return require('packer').startup({function(use)
     use 'theHamsta/nvim-dap-virtual-text'
     use 'rcarriga/nvim-dap-ui'
     -- use 'mfussenegger/nvim-dap-python'
+
+    -- auto tag
+    use 'windwp/nvim-ts-autotag'
+    use 'norcalli/nvim-colorizer.lua'
       
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
