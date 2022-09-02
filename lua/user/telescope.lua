@@ -1,4 +1,9 @@
-require('telescope').setup{
+local status, telescope  = pcall(require,'telescope')
+if(status == nil) then
+  return
+end
+
+telescope.setup{
     defaults = {
       -- Default configuration for telescope goes here:
       -- config_key = value,

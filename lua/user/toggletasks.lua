@@ -1,5 +1,14 @@
-require('telescope').load_extension('toggletasks')
-require('toggletasks').setup {
+local telescopeStatus, telescope  = pcall(require,'telescope')
+if(telescopeStatus == nil) then
+    return
+end
+telescope.load_extension('toggletasks')
+
+local toggletasksStatus, toggletasks  = pcall(require,'toggletasks')
+if(toggletasksStatus == nil) then
+    return
+end
+toggletasks.setup {
     debug = false,
     silent = false,  -- don't show "info" messages
     short_paths = true,  -- display relative paths when possible
