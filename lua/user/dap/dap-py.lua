@@ -1,7 +1,7 @@
 local dap = require('dap')
 dap.adapters.python = {
   type = 'executable';
-  command = 'path/to/virtualenvs/debugpy/bin/python';
+  command = vim.g.python_path;
   args = { '-m', 'debugpy.adapter' };
 }
 
