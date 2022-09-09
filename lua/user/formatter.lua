@@ -34,10 +34,10 @@ require('formatter').setup {
       require('formatter.filetypes.typescriptreact').prettier,
     },
     c = {
-      forc,
+      require('formatter.filetypes.c').clangd,
     },
     cpp = {
-      forc,
+      require('formatter.filetypes.cpp').clangd,
     },
     cs = {
       require('formatter.filetypes.cs').dotnetformat,

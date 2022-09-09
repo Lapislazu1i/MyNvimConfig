@@ -47,12 +47,13 @@ local statusm, mason = pcall(require, 'mason')
 if(not statusm) then return end
 mason.setup()
 
-local statusml, mason_lspconfig = pcall(require,'mason-lspconfig')
-mason_lspconfig.setup()
+require("mason-lspconfig").setup({
+  ensure_installed = { "rust_analyzer" }
+})
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'rust_analyzer', 'omnisharp', 'clangd', 'cmake-language-server' }
+local servers = { 'pyright', 'rust_analyzer', 'omnisharp', 'clangd', 'cmake' }
 for _, lsp in pairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
