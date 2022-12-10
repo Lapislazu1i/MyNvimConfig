@@ -33,3 +33,4 @@ vim.o.hidden = true
 vim.api.nvim_command(':filetype plugin on')
 
 vim.g.python_path = "D:/Program/Python310/python"
+vim.g.lldb_path = "/usr/bin/lldb-vscode-16"

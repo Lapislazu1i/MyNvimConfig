@@ -7,10 +7,6 @@ end
 
 vim.cmd [[packadd packer.nvim]]
 return require('packer').startup({function(use)
-    -- My plugins here
-    -- use 'foo1/bar1.nvim'
-    -- use 'foo2/bar2.nvim'
-
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
@@ -22,45 +18,30 @@ return require('packer').startup({function(use)
     -- Load on an autocommand event
     use { 'andymass/vim-matchup', event = 'VimEnter' }
 
-
-
-    -- install without yarn or npm
-
-
     use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
 
-    -- Post-install/update hook with neovim command
     use { 'nvim-treesitter/nvim-treesitter' }
 
-
-
-    -- Use dependency and run lua function after load
     use {
         'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
         config = function() require('gitsigns').setup() end
     }
 
-    -- You can specify multiple plugins in a single call
     use { 'tjdevries/colorbuddy.vim', { 'nvim-treesitter/nvim-treesitter', opt = true } }
-
-    -- You can alias plugin names
-    use { 'dracula/vim', as = 'dracula' }
-
-
 
     -- custom
 
     -- colorschemes
     use 'morhetz/gruvbox'
+    use { 'dracula/vim', as = 'dracula' }
 
     -- lspconfig
     use {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "neovim/nvim-lspconfig",
-  }
-    use { "williamboman/mason.nvim" }
+    }
     use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
     use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
     use({"petertriho/cmp-git", requires = "nvim-lua/plenary.nvim"})
@@ -71,28 +52,13 @@ return require('packer').startup({function(use)
     use({
       "glepnir/lspsaga.nvim",
       branch = "main",
-      config = function()
-          local saga = require("lspsaga")
-  
-          saga.init_lsp_saga({
-              -- your configuration
-          })
-      end,
-  })
-
+    })
 
     -- clangd extension
     use 'p00f/clangd_extensions.nvim'
 
+    use { "windwp/nvim-autopairs" }
 
-
-    -- highlight and symbols
-    use {
-        "windwp/nvim-autopairs",
-            config = function()
-                require("nvim-autopairs").setup {}
-        end
-    }
     use 'kyazdani42/nvim-web-devicons'
     -- file exporer
     use {
@@ -108,9 +74,7 @@ return require('packer').startup({function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
       }
 
-    use {"akinsho/toggleterm.nvim", tag = 'v1.*', config = function()
-        require("toggleterm").setup()
-    end}
+    use {"akinsho/toggleterm.nvim", tag = 'v1.*'}
 
     use {
         'jedrzejboczar/toggletasks.nvim',

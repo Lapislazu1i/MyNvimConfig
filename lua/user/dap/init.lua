@@ -12,6 +12,9 @@ vim.fn.sign_define("DapBreakpoint", {text = "⊚", texthl = "TodoFgFIX", linehl 
 local dap_config = {
     python = require("user.dap.python"),
     -- go = require("user.dap.go")
+    cpp = require("user.dap.cpp"),
+    c = require("user.dap.c"),
+    rust = require("user.dap.rust"),
 }
 
 -- 设置调试器
@@ -25,17 +28,17 @@ vim.keymap.set("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>
 -- 开启调试或到下一个断点处
 vim.keymap.set("n", "<F5>", "<cmd>lua require'dap'.continue()<CR>")
 -- 单步进入执行（会进入函数内部，有回溯阶段）
-vim.keymap.set("n", "<F6>", "<cmd>lua require'dap'.step_into()<CR>")
+vim.keymap.set("n", "<F3>", "<cmd>lua require'dap'.step_into()<CR>")
 -- 单步跳过执行（不进入函数内部，无回溯阶段）
-vim.keymap.set("n", "<F7>", "<cmd>lua require'dap'.step_over()<CR>")
+vim.keymap.set("n", "<F4>", "<cmd>lua require'dap'.step_over()<CR>")
 -- 步出当前函数
-vim.keymap.set("n", "<F8>", "<cmd>lua require'dap'.step_out()<CR>")
+vim.keymap.set("n", "<leader><F3>", "<cmd>lua require'dap'.step_out()<CR>")
 -- 重启调试
-vim.keymap.set("n", "<F9>", "<cmd>lua require'dap'.run_last()<CR>")
+vim.keymap.set("n", "<leader>dr", "<cmd>lua require'dap'.run_last()<CR>")
 -- 退出调试（关闭调试，关闭 repl，关闭 ui，清除内联文本）
 vim.keymap.set(
     "n",
-    "<F10>",
+    "<leader>dc",
     "<cmd>lua require'dap'.close()<CR><cmd>lua require'dap.repl'.close()<CR><cmd>lua require'dapui'.close()<CR><cmd>DapVirtualTextForceRefresh<CR>"
 )
 

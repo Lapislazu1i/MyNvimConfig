@@ -34,8 +34,8 @@ local plug_map = {
 	["n|<Leader>nr"] = map_cr("NvimTreeRefresh"):with_noremap():with_silent(),
 
 	-- Plugin Telescope
-	--["n|<Leader>fp"] = map_cu("lua require('telescope').extensions.project.project{}"):with_noremap():with_silent(),
-	--["n|<Leader>fr"] = map_cu("lua require('telescope').extensions.frecency.frecency{}"):with_noremap():with_silent(),
+	["n|<Leader>fp"] = map_cu("lua require('telescope').extensions.project.project{}"):with_noremap():with_silent(),
+	["n|<Leader>fr"] = map_cu("lua require('telescope').extensions.frecency.frecency{}"):with_noremap():with_silent(),
 	["n|<Leader>fe"] = map_cu("Telescope oldfiles"):with_noremap():with_silent(),
 	["n|<Leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent(),
 	["n|<Leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent(),
@@ -61,22 +61,22 @@ bind.nvim_load_mapping(plug_map)
 
 vim.keymap.set('n', '<C-s>', '<Cmd>w<CR>')
 -- terminal
-vim.keymap.set({'n', 't'}, '<C-t>', '<Cmd>exe v:count1 . "ToggleTerm"<CR>')
-vim.keymap.set({'n', 't'}, '<Leader>2', '<Cmd>exe 2 . "ToggleTerm"<CR>')
-vim.keymap.set({'n', 't'}, '<Leader>2', '<Cmd>exe 3 . "ToggleTerm"<CR>')
+vim.keymap.set({'n', 't'}, '<leader>1', '<Cmd>exe v:count1 . "ToggleTerm"<CR>')
+vim.keymap.set({'n', 't'}, '<leader>2', '<Cmd>exe 2 . "ToggleTerm"<CR>')
+vim.keymap.set({'n', 't'}, '<leader>3', '<Cmd>exe 3 . "ToggleTerm"<CR>')
 vim.keymap.set({'n', 't'}, '<C-t-a>', '<Cmd>ToggleTermToggleAll<CR>')
 
 vim.keymap.set({'n'}, '<F12>', '<Cmd>MarkdownPreviewToggle<CR>')
 
 -- close buffer
-vim.keymap.set({'n'}, '<Leader>w', '<Cmd>bd<CR>')
+vim.keymap.set({'n'}, '<leader>w', '<Cmd>bd<CR>')
 -- tasks
-vim.keymap.set('n', '<Leader>t', require('telescope').extensions.toggletasks.spawn,
+vim.keymap.set('n', '<leader>t', require('telescope').extensions.toggletasks.spawn,
     { desc = 'toggletasks: spawn' })
 
 -- format
-vim.keymap.set('n', '<Leader><A-f>', '<Cmd>Format<CR>')
-vim.keymap.set('n', '<Leader><A-F>', '<Cmd>FormatWrite<CR>')
+vim.keymap.set('n', '<leader><A-f>', '<Cmd>Format<CR>')
+vim.keymap.set('n', '<leader><A-F>', '<Cmd>FormatWrite<CR>')
 
 -- split screen
 vim.keymap.set('n', 'sv', "<Cmd>vsp<CR>")
