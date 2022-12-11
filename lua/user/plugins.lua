@@ -33,7 +33,7 @@ return require('packer').startup({function(use)
     -- custom
 
     -- colorschemes
-    use 'morhetz/gruvbox'
+    use {'morhetz/gruvbox', as = 'gruvbox'}
     use { 'dracula/vim', as = 'dracula' }
 
     -- lspconfig

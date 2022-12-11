@@ -14,5 +14,6 @@ require("keymap")
 
 
 
-vim.cmd [[colorscheme dracula]]
+vim.cmd [[colorscheme gruvbox]]
+vim.cmd[[highlight Normal guibg=NONE ctermbg=None]]
 vim.background = dark
