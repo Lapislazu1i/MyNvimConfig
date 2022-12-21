@@ -4,7 +4,7 @@ vim.opt.hlsearch = true
 vim.opt.smartcase = true
 
 vim.opt.showtabline = 2
-vim.opt.smartindent = true
+vim.opt.smartindent = false
 vim.opt.autoindent = false
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
@@ -20,7 +20,7 @@ vim.opt.numberwidth = 4
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
-vim.opt.updatetime = 2000
+vim.opt.updatetime = 500
 
 vim.opt.termguicolors = true
 vim.opt.wrap = false

@@ -9,7 +9,7 @@ for _, p in pairs(parsers) do
   )
 end
 
-require 'nvim-treesitter.install'.compilers = { "zig", "clang", "gcc" }
+require 'nvim-treesitter.install'.compilers = { "clang", "zig", "gcc" }
 
 -- need npm install tree-sitter-cli
 local status, treesitter = pcall(require, 'nvim-treesitter.configs')
@@ -19,7 +19,7 @@ end
 
 treesitter.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "typescript", "tsx","vim", "python", "cpp", "c", "json", "c_sharp", "bash" },
+  ensure_installed = { "python", "cpp","json" },
   
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
