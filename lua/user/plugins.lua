@@ -23,14 +23,22 @@ return require('packer').startup({function(use)
     -- Load on an autocommand event
     use { 'andymass/vim-matchup', event = 'VimEnter' }
 
+    -- install without yarn or npm
+    use({
+      "iamcco/markdown-preview.nvim",
+      run = function() vim.fn["mkdp#util#install"]() end,
+    })
+    
     use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
 
     use { 'nvim-treesitter/nvim-treesitter' }
 
     use {
-        'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
-        config = function() require('gitsigns').setup() end
+      'lewis6991/gitsigns.nvim',
+      config = function()
+        require('gitsigns').setup()
+      end
     }
 
     use { 'tjdevries/colorbuddy.vim', { 'nvim-treesitter/nvim-treesitter', opt = true } }
