@@ -14,7 +14,7 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup({function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
-
+    
 
     -- Lazy loading:
     -- Load on specific commands
@@ -37,6 +37,9 @@ return require('packer').startup({function(use)
 
     -- custom
 
+    use 'ggandor/leap.nvim'
+    use 'ggandor/flit.nvim'
+    
     -- colorschemes
     use {'morhetz/gruvbox', as = 'gruvbox'}
     use { 'dracula/vim', as = 'dracula' }

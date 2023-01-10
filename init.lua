@@ -16,4 +16,5 @@ require("keymap")
 
 vim.cmd [[colorscheme gruvbox]]
 vim.cmd[[highlight Normal guibg=NONE ctermbg=None]]
+vim.cmd [[set spell]]
 vim.background = dark

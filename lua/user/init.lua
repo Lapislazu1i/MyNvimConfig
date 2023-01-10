@@ -19,6 +19,7 @@ require("user.bufferline")
 require("user.dap")
 require("user.colorizer")
 require("user.lspsaga")
+require("user.leap")
 
 
 
