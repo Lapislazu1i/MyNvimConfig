@@ -19,9 +19,19 @@ end
 nvim_autopairs.setup({
     check_ts = true,
     ts_config = {
-        lua = {'string'},-- it will not add a pair on that treesitter node
-        javascript = {'template_string'},
-    }
+        lua = {'string', 'source'},-- it will not add a pair on that treesitter node
+        javascript = {'string', 'template_string'},
+    },
+    fast_wrap = {
+        map = '<M-e>',
+        chars = {'{', '[', '(', '"', "'"},
+        pattern = [=[[%'%"%)%>%]%}%,]]=],
+        end_key = '$',
+        keys = 'qwertyuiopasdfghjklzxcvbnm',
+        check_comma = true,
+        highlight = 'Search',
+        highlight_grey = 'Comment'
+    },
 })
 
 local ts_conds_status, ts_conds = pcall(require, 'nvim-autopairs.ts-conds')

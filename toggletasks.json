@@ -23,9 +23,15 @@
         },
         {
             "name": "CMake build",
-            "cmd": "cmake --build build -j",
+            "cmd": "cmake . --build build -j",
             "cwd": "${config_dir}",
             "tags": ["build", "cmake"]
+        },
+        {
+            "name": "Cmake install",
+            "cmd": "cmake --build build --target install",
+            "cwd": "${config_dir}",
+            "tags": ["cmake", "install"]
         },
         {
             "name": "django runserver",

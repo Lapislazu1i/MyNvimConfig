@@ -123,6 +123,9 @@ return require('packer').startup({function(use)
     -- auto tag
     use 'windwp/nvim-ts-autotag'
     use 'norcalli/nvim-colorizer.lua'
+
+    -- comment
+    use 'numToStr/Comment.nvim'
       
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
