@@ -28,7 +28,7 @@ treesitter.setup {
   ignore_install = {  },
 
   indent = {
-    enable = true,
+    enable = false,
     disable= {}
   },
   autotag= {

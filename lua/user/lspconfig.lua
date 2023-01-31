@@ -53,7 +53,7 @@ end
 mason.setup()
 
 require("mason-lspconfig").setup({
-    ensure_installed = {"rust_analyzer"}
+    -- ensure_installed = {"rust_analyzer"}
 })
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
