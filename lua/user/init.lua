@@ -21,6 +21,8 @@ require("user.colorizer")
 require("user.lspsaga")
 require("user.leap")
 require("user.comment")
+require("user.noice")
+
 
 
 

@@ -44,7 +44,8 @@ return require('packer').startup({function(use)
     use { 'tjdevries/colorbuddy.vim', { 'nvim-treesitter/nvim-treesitter', opt = true } }
 
     -- custom
-
+    use({"folke/noice.nvim", requires = {"MunifTanjim/nui.nvim", "rcarriga/nvim-notify"}})
+    use 'rcarriga/nvim-notify'
     use 'ggandor/leap.nvim'
     use 'ggandor/flit.nvim'
     
@@ -95,7 +96,7 @@ return require('packer').startup({function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
       }
 
-    use {"akinsho/toggleterm.nvim", tag = 'v1.*'}
+    use {"akinsho/toggleterm.nvim", tag = '*'}
 
     use {
         'jedrzejboczar/toggletasks.nvim',
@@ -112,7 +113,7 @@ return require('packer').startup({function(use)
     -- symbols outline
     use 'simrat39/symbols-outline.nvim'
 
-    use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
+    use {'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons'}
 
     -- lua line 
     use  'nvim-lualine/lualine.nvim'

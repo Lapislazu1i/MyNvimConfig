@@ -92,3 +92,7 @@ vim.keymap.set('n', '<C-l>', '<C-w>l')
 -- dap
 -- 显示或隐藏调试界面
 vim.keymap.set("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<CR>")
+
+-- yank clipboard
+vim.keymap.set({'n', 'v'}, '<leader>y', '"+y')
+vim.keymap.set({'n', 'v'}, '<leader>p', '"+p')
