@@ -34,5 +34,9 @@ vim.api.nvim_command(':filetype plugin on')
 
 vim.opt.clipboard=autoselect
 
+-- Neovim how to disable autoindent triggered by colon char, such as std::
+vim.opt.cinkeys = "0{,0},0),0],0#,!^F,o,O,e"
+vim.opt.indentkeys = "0{,0},0),0],0#,!^F,o,O,e"
+
 vim.g.python_path = "D:/Program/Python310/python"
 vim.g.lldb_path = "/usr/bin/lldb-vscode-16"
